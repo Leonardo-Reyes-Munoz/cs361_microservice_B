@@ -1,16 +1,19 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 3010;
 
+app.use(cors());
+
 //routers
-const debtRouter = require('./routes/pets');
+const imagesRouter = require('./routes/images');
 
 app.get('/', (req, res) => {
-  res.send('Microservice B');
+  res.send('Microservice B: Pet Adoption App Images');
 });
 
-app.use('/api/v1/pets', debtRouter);
+app.use('/api/v1/images', imagesRouter);
 
 app.listen(port, () => {
-  console.log('Microservice A listening on port 3010...');
+  console.log('Microservice B(Images): listening on port 3010...');
 });
